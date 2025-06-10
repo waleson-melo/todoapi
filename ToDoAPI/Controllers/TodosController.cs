@@ -24,6 +24,7 @@ public class TodosController : ControllerBase
     public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodos()
     {
         var todoItems = await _context.TodoItems.ToListAsync();
+
         return Ok(_mapper.Map<IEnumerable<TodoItemDTO>>(todoItems));
     }
 
@@ -46,6 +47,7 @@ public class TodosController : ControllerBase
         await _context.SaveChangesAsync();
 
         var item = _mapper.Map<TodoItemDTO>(todoItem);
+
         return CreatedAtAction(nameof(GetTodoItem), new { id = item.Id }, item);
     }
 
