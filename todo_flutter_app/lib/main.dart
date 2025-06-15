@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 
-
 void main() => runApp(App());
 
 class App extends StatelessWidget {
@@ -11,14 +10,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ToDo Flutter App',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        useMaterial3: true,
-      ),
+      theme: ThemeData(primarySwatch: Colors.indigo, useMaterial3: true),
       initialRoute: '/',
-      routes: {
-        '/': (context) => const TodoHomePage(),
-      },
+      routes: {'/': (context) => const TodoHomePage()},
     );
   }
 }

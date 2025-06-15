@@ -24,8 +24,7 @@ class TodoListTile extends StatelessWidget {
       title: Text(
         todo['title'],
         style: TextStyle(
-          decoration:
-              todo['isCompleted'] ? TextDecoration.lineThrough : null,
+          decoration: todo['isCompleted'] ? TextDecoration.lineThrough : null,
           color: todo['isCompleted'] ? Colors.grey : null,
         ),
       ),

@@ -1,5 +1,3 @@
-// TODO Implement this library.
-
 import 'package:flutter/material.dart';
 import '../consumer.dart';
 import '../dialogs/add_todo_dialog.dart';
@@ -29,7 +27,8 @@ class _TodoHomePageState extends State<TodoHomePage> {
   }
 
   void _showAddDialog() => showAddTodoDialog(context, _refreshTodos);
-  void _showEditDialog(dynamic todo) => showEditTodoDialog(context, todo, _refreshTodos);
+  void _showEditDialog(dynamic todo) =>
+      showEditTodoDialog(context, todo, _refreshTodos);
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +45,8 @@ class _TodoHomePageState extends State<TodoHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddDialog,
-        child: const Icon(Icons.add),
         tooltip: 'Adicionar ToDo',
+        child: const Icon(Icons.add),
       ),
       body: FutureBuilder<List<dynamic>>(
         future: _todosFuture,
@@ -72,7 +71,11 @@ class _TodoHomePageState extends State<TodoHomePage> {
                   _refreshTodos();
                 },
                 onToggle: (value) async {
-                  await TodoApi.updateTodo(todos[index]['id'], todos[index]['title'], value);
+                  await TodoApi.updateTodo(
+                    todos[index]['id'],
+                    todos[index]['title'],
+                    value,
+                  );
                   _refreshTodos();
                 },
               ),

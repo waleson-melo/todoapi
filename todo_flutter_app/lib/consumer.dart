@@ -13,13 +13,32 @@ class TodoApi {
     }
   }
 
-  static Future<void> addTodo(String title) async {}
+  static Future<void> addTodo(String title) async {
+    final response = await http.post(
+      Uri.parse(baseUrl),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'title': title, 'isCompleted': false}),
+    );
+    if (response.statusCode != 201 && response.statusCode != 200) {
+      throw Exception('Erro ao adicionar todo');
+    }
+  }
 
-  static Future<void> updateTodo(
-    int id,
-    String title,
-    bool isCompleted,
-  ) async {}
+  static Future<void> updateTodo(int id, String title, bool isCompleted) async {
+    final response = await http.put(
+      Uri.parse('$baseUrl/$id'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'id': id, 'title': title, 'isCompleted': isCompleted}),
+    );
+    if (response.statusCode != 204 && response.statusCode != 200) {
+      throw Exception('Erro ao atualizar todo');
+    }
+  }
 
-  static Future<void> deleteTodo(int id) async {}
+  static Future<void> deleteTodo(int id) async {
+    final response = await http.delete(Uri.parse('$baseUrl/$id'));
+    if (response.statusCode != 204 && response.statusCode != 200) {
+      throw Exception('Erro ao deletar todo');
+    }
+  }
 }
