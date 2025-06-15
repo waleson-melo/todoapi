@@ -54,3 +54,9 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
