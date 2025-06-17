@@ -61,7 +61,7 @@ Este repositório contém uma API para gerenciamento de tarefas (TODO), desenvol
 - `DELETE /api/todos/{id}` - Remove uma tarefa
 
 ## Imagens dos Projetos
-
+<p align="center"><img src="docs/api-flutter.png" style="width:100%"/></p>
 
 ## Documentos Auxiliares
 [Slide minicurso](docs/NET%20+%20Flutter.pdf)
